@@ -1,12 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Lupharma - Farmácia de Manipulação</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lupharma - Farmácia de Manipulação</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #0e7a28, #16a73a);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+        }
+
+        header img {
+            height: 70px;
+        }
+
+        .banner {
+            width: 100%;
+            max-height: 350px;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            display: block;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 5px;
+            margin-top: -40px;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+        }
+
+        h1, h2 {
+            color: #0e7a28;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0e7a28;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .contato {
+            background: #16a73a;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .contato p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
-<body style="font-family: Arial; padding: 20px;">
-    <h1>Bem-vindo à Lupharma</h1>
-    <p>Site em construção.</p>
+<body>
+
+    <header>
+        <img src="logo.png" alt="Logo Lupharma">
+        <h1>Lupharma • Farmácia de Manipulação</h1>
+    </header>
+
+    <div class="banner">
+        <img src="fachada.jpg" alt="Fachada Lupharma">
+    </div>
+
+    <div class="container">
+        <h2>Bem-vindo à Lupharma</h2>
+        <p>
+            Somos uma farmácia de manipulação especializada em oferecer cuidado, qualidade, e atendimento humanizado. Nossos profissionais trabalham com responsabilidade para entregar fórmulas personalizadas para cada necessidade.
+        </p>
+
+        <h2>Nossos Diferenciais</h2>
+        <ul>
+            <li>✔ Manipulação com rigor técnico</li>
+            <li>✔ Ingredientes de qualidade certificada</li>
+            <li>✔ Atendimento humanizado</li>
+            <li>✔ Entrega por delivery</li>
+        </ul>
+
+        <div class="contato">
+            <h2>📞 Contato</h2>
+            <p>Telefone: (13) 3467-1206</p>
+            <p>WhatsApp: (13) 3568-4945</p>
+            <p>Endereço: Av. (coloque o endereço aqui)</p>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 — Lupharma • Todos os direitos reservados.
+    </footer>
+
 </body>
 </html>
