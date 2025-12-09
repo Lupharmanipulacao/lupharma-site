@@ -12,7 +12,6 @@
         background: #f3f7f4;
     }
 
-    /* Topo com imagem da fachada */
     .hero {
         position: relative;
         width: 100%;
@@ -23,7 +22,6 @@
         align-items: center;
     }
 
-    /* Escurecimento elegante */
     .hero::before {
         content: "";
         position: absolute;
@@ -32,21 +30,18 @@
         backdrop-filter: blur(2px);
     }
 
-    /* Logo no topo */
     .logo-topo {
         position: absolute;
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
         width: 150px;
-        height: auto;
         background: white;
         padding: 10px;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
-    /* Texto sobre a fachada */
     .hero h1 {
         position: relative;
         color: #ffffff;
@@ -55,7 +50,6 @@
         text-shadow: 0 0 10px rgba(0,0,0,0.9);
     }
 
-    /* Caixa do formulário */
     .form-container {
         background: white;
         width: 90%;
@@ -112,46 +106,108 @@
         display: block;
         margin-top: 6px;
     }
+
+    /* Página de agradecimento */
+    #thanks {
+        display: none;
+        text-align: center;
+        padding: 40px;
+    }
+
+    #thanks h2 {
+        color: #1d613a;
+        font-size: 28px;
+    }
+
+    #thanks p {
+        color: #333;
+        font-size: 18px;
+    }
 </style>
 
 </head>
 <body>
 
-<!-- topo com imagem -->
-<div class="hero">
-    <img class="logo-topo" src="logo.png" alt="Logo Lupharma">
-    <h1>Wi-Fi Gratuito para Clientes</h1>
-</div>
+<div id="main">
 
-<!-- formulário -->
-<div class="form-container">
-    <h2>Preencha para liberar o Wi-Fi</h2>
-    <p>Complete seus dados para acessar o Wi-Fi da Lupharma.</p>
-
-    <form>
-        <label>Nome completo</label>
-        <input type="text" placeholder="Seu nome">
-
-        <label>Telefone</label>
-        <input type="tel" placeholder="(DDD) 90000-0000">
-
-        <label>E-mail</label>
-        <input type="email" placeholder="seu@email.com">
-
-        <button>Conectar ao Wi-Fi</button>
-    </form>
-</div>
-
-<!-- rodapé -->
-<div class="rodape">
-    <strong>Lupharma Manipulação</strong><br>
-    Rua Ipiranga, 183 – Centro, São Vicente – SP
-
-    <div class="social">
-        <a href="https://www.instagram.com/lupharma183" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/share/1DJES4Ho99/" target="_blank">Facebook</a>
+    <div class="hero">
+        <img class="logo-topo" src="logo.png" alt="Logo Lupharma">
+        <h1>Wi-Fi Gratuito para Clientes</h1>
     </div>
+
+    <div class="form-container">
+        <h2>Preencha para liberar o Wi-Fi</h2>
+        <p>Complete seus dados para acessar o Wi-Fi da Lupharma.</p>
+
+        <form id="wifiForm">
+            <label>Nome completo</label>
+            <input id="nome" type="text" placeholder="Seu nome" required>
+
+            <label>Telefone</label>
+            <input id="telefone" type="tel" placeholder="(DDD) 90000-0000" required>
+
+            <label>E-mail</label>
+            <input id="email" type="email" placeholder="seu@email.com" required>
+
+            <label>CPF (opcional)</label>
+            <input id="cpf" type="text" placeholder="000.000.000-00">
+
+            <button type="submit">Conectar ao Wi-Fi</button>
+        </form>
+    </div>
+
+    <div class="rodape">
+        <strong>Lupharma Manipulação</strong><br>
+        Rua Ipiranga, 183 – Centro, São Vicente – SP
+
+        <div class="social">
+            <a href="https://www.instagram.com/lupharma183" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/share/1DJES4Ho99/" target="_blank">Facebook</a>
+        </div>
+    </div>
+
 </div>
+
+<!-- Página de agradecimento -->
+<div id="thanks">
+    <h2>Obrigado! ✔</h2>
+    <p>Seu acesso ao Wi-Fi foi liberado.</p>
+    <p>Você será redirecionado em instantes…</p>
+</div>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxxxNqvveetMTKtazqtwSr1STs_LRn4QBoqTmPowHmgJt5Wj5YLhjl2idu6-mSLKmQp/exec";
+
+document.getElementById("wifiForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const dados = {
+        nome: document.getElementById("nome").value,
+        telefone: document.getElementById("telefone").value,
+        email: document.getElementById("email").value,
+        cpf: document.getElementById("cpf").value
+    };
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(dados),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(res => {
+        // Esconde o site
+        document.getElementById("main").style.display = "none";
+
+        // Mostra a tela de agradecimento
+        document.getElementById("thanks").style.display = "block";
+
+        // Aguarda 3 segundos e redireciona
+        setTimeout(() => {
+            window.location.href = "https://www.instagram.com/lupharma183";
+        }, 3000);
+    })
+    .catch(err => alert("Erro ao enviar, tente novamente."));
+});
+</script>
 
 </body>
 </html>
