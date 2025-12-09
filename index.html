@@ -6,99 +6,154 @@
     <title>Lupharma | Wi-Fi Gratuito</title>
 
     <style>
+        /* =================== GERAL =================== */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f3f6f4;
+            background: #e9f1ed;
+            font-family: "Segoe UI", Arial, sans-serif;
             color: #1c3b32;
         }
 
+        /* =================== HEADER =================== */
         header {
             background: #1c3b32;
-            padding: 20px;
+            padding: 25px 0;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         header img {
-            width: 130px;
-            border-radius: 10px;
+            width: 140px;
+            border-radius: 12px;
         }
 
+        /* =================== CAPA =================== */
         .hero {
             background: url('fachada.jpg') center/cover no-repeat;
-            height: 230px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 260px;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero::after {
             content: "";
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.35);
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
         }
 
         .hero h1 {
-            color: white;
             position: relative;
-            font-size: 1.8rem;
+            color: #fff;
+            font-size: 2rem;
             text-align: center;
             padding: 0 20px;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(0,0,0,0.6);
         }
 
+        /* =================== CAIXAS DE CONTEÚDO =================== */
         .content {
             padding: 20px;
         }
 
         .card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            background: #ffffffcc;
+            backdrop-filter: blur(7px);
+            padding: 22px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 22px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: #1c3b32;
+            font-weight: 700;
         }
 
         label {
-            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
             font-size: 0.95rem;
         }
 
         input {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin-top: 6px;
-            margin-bottom: 16px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
+            border: 1px solid #cdd5d0;
+            border-radius: 12px;
             font-size: 1rem;
+            outline: none;
+            transition: all .2s ease;
         }
 
+        input:focus {
+            border-color: #1c3b32;
+            box-shadow: 0 0 5px rgba(28,59,50,0.3);
+        }
+
+        /* =================== BOTÃO =================== */
         button {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
+            margin-top: 15px;
             font-size: 1.1rem;
             border: none;
-            border-radius: 10px;
-            background: #1c3b32;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #1c3b32, #2c6455);
             color: white;
             font-weight: bold;
             cursor: pointer;
+            transition: 0.2s ease;
         }
 
         button:hover {
-            background: #245447;
+            transform: scale(1.02);
+            background: linear-gradient(135deg, #245447, #1c3b32);
         }
 
+        /* =================== LINK DAS REDES =================== */
+        .social a {
+            display: block;
+            padding: 14px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            background: #1c3b32;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+            transition: 0.2s ease;
+        }
+
+        .social a:hover {
+            background: #245447;
+            transform: scale(1.02);
+        }
+
+        /* =================== FOOTER =================== */
         footer {
             text-align: center;
-            padding: 15px;
-            font-size: 0.9rem;
+            padding: 18px;
             color: #1c3b32;
-            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.85;
         }
+
     </style>
 </head>
 
@@ -116,7 +171,7 @@
 
     <div class="card">
         <h2>Preencha para liberar o Wi-Fi</h2>
-        <p>Para acessar o Wi-Fi da <strong>Lupharma</strong>, preencha seus dados abaixo.</p>
+        <p>Por favor, complete seus dados para acessar o Wi-Fi da <strong>Lupharma</strong>.</p>
 
         <label>Nome completo</label>
         <input type="text" placeholder="Seu nome">
@@ -130,28 +185,26 @@
         <label>CPF</label>
         <input type="text" placeholder="000.000.000-00">
 
-        <button onclick="alert('Dados enviados! Agora siga as redes sociais para liberar o Wi-Fi.')">
-            Enviar e Continuar
+        <button onclick="alert('Dados enviados! Agora siga nossas redes para liberar o Wi-Fi.');">
+            Enviar e continuar
         </button>
     </div>
 
-    <div class="card">
-        <h2>Siga nossas redes</h2>
-        <p>Após enviar seus dados, siga a Lupharma para concluir o acesso:</p>
-
-        <p><a href="https://instagram.com" target="_blank">📸 Instagram</a></p>
-        <p><a href="https://facebook.com" target="_blank">📘 Facebook</a></p>
+    <div class="card social">
+        <h2>Siga a Lupharma</h2>
+        <a href="https://www.instagram.com/lupharma183?igsh=aXl2OG53dmtvOTFw" target="_blank">📸 Instagram Oficial</a>
+        <a href="https://www.facebook.com/share/1DJES4Ho99/" target="_blank">📘 Facebook Oficial</a>
     </div>
 
     <div class="card">
         <h2>Endereço</h2>
-        <p>📍 Rua Ipiranga, 183 - Centro<br>São Vicente, São Paulo</p>
+        <p>📍 Rua Ipiranga, 183 – Centro<br>São Vicente – SP</p>
     </div>
 
 </div>
 
 <footer>
-    © 2025 Lupharma Farmácia de Manipulação
+    © 2025 Lupharma Farmácia de Manipulação – Todos os direitos reservados
 </footer>
 
 </body>
